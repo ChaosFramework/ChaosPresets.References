@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../EnsureChaosPresetsSubmoduleReferenceImport.targets"
+    Condition=" '$(EnsureChaosPresetsSubmoduleReferenceImported)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosAnalyzers_CleanCode_Repo>ChaosAnalyzers.CleanCode</ChaosAnalyzers_CleanCode_Repo>
+    <ChaosAnalyzers_CleanCode_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosAnalyzers_CleanCode_Repo)$(SubmoduleRefRegex_Suffix)</ChaosAnalyzers_CleanCode_Regex>
+    <ChaosAnalyzers_CleanCode_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosAnalyzers_CleanCode_Regex)'))</ChaosAnalyzers_CleanCode_Path>
+    <ChaosAnalyzers_CleanCode_FullPath>$(SolutionDir)/$(ChaosAnalyzers_CleanCode_Path)/export/Include.targets</ChaosAnalyzers_CleanCode_FullPath>
+  </PropertyGroup>
+
+  <Import
+    Project="$(ChaosAnalyzers_CleanCode_FullPath)"
+    Condition="Exists('$(ChaosAnalyzers_CleanCode_FullPath)')"
+    />
+
+</Project>
