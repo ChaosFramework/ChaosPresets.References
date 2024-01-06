@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../EnsureChaosPresetsSubmoduleReferenceImport.targets"
+    Condition=" '$(EnsureChaosPresetsSubmoduleReferenceImported)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosBuild_CodeFormatter_Repo>ChaosBuild.CodeFormatter</ChaosBuild_CodeFormatter_Repo>
+    <ChaosBuild_CodeFormatter_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosBuild_CodeFormatter_Repo)$(SubmoduleRefRegex_Suffix)</ChaosBuild_CodeFormatter_Regex>
+    <ChaosBuild_CodeFormatter_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosBuild_CodeFormatter_Regex)'))</ChaosBuild_CodeFormatter_Path>
+    <ChaosBuild_CodeFormatter_FullPath>$(SolutionDir)/$(ChaosBuild_CodeFormatter_Path)/$(ChaosBuild_CodeFormatter_Repo).csproj</ChaosBuild_CodeFormatter_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosBuild_CodeFormatter_FullPath)')">
+    <ProjectReference Include="$(ChaosBuild_CodeFormatter_FullPath)">
+      <Project>{01E81019-4CBD-41F4-A5C4-3227C85DCB60}</Project>
+      <Name>$(ChaosBuild_CodeFormatter_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
