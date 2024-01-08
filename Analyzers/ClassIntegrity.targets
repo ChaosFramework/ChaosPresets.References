@@ -2,20 +2,17 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <Import
-    Project="../SubmoduleReference.targets"
-    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    Project="../Repositories/ChaosAnalyzers.ClassIntegrity.targets"
+    Condition=" '$(ChaosAnalyzers_ClassIntegrity_Path)' == '' "
     />
 
-  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
-    <ChaosAnalyzers_ClassIntegrity_Repo>ChaosAnalyzers.ClassIntegrity</ChaosAnalyzers_ClassIntegrity_Repo>
-    <ChaosAnalyzers_ClassIntegrity_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosAnalyzers_ClassIntegrity_Repo)$(SubmoduleRefRegex_Suffix)</ChaosAnalyzers_ClassIntegrity_Regex>
-    <ChaosAnalyzers_ClassIntegrity_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosAnalyzers_ClassIntegrity_Regex)'))</ChaosAnalyzers_ClassIntegrity_Path>
-    <ChaosAnalyzers_ClassIntegrity_FullPath>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Path)/export/Include.targets</ChaosAnalyzers_ClassIntegrity_FullPath>
+  <PropertyGroup>
+    <ChaosAnalyzers_ClassIntegrity_Include>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Path)/export/Include.targets</ChaosAnalyzers_ClassIntegrity_Include>
   </PropertyGroup>
 
   <Import
-    Project="$(ChaosAnalyzers_ClassIntegrity_FullPath)"
-    Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_FullPath)')"
+    Project="$(ChaosAnalyzers_ClassIntegrity_Include)"
+    Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Include)')"
     />
 
 </Project>

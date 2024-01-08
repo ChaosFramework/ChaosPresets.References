@@ -2,19 +2,16 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <Import
-    Project="../SubmoduleReference.targets"
-    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    Project="../Repositories/ChaosAnalyzers.ClassIntegrity.Types.targets"
+    Condition=" '$(ChaosAnalyzers_ClassIntegrity_Types_Path)' == '' "
     />
 
-  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
-    <ChaosAnalyzers_ClassIntegrity_Types_Repo>ChaosAnalyzers.ClassIntegrity.Types</ChaosAnalyzers_ClassIntegrity_Types_Repo>
-    <ChaosAnalyzers_ClassIntegrity_Types_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosAnalyzers_ClassIntegrity_Types_Repo)$(SubmoduleRefRegex_Suffix)</ChaosAnalyzers_ClassIntegrity_Types_Regex>
-    <ChaosAnalyzers_ClassIntegrity_Types_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosAnalyzers_ClassIntegrity_Types_Regex)'))</ChaosAnalyzers_ClassIntegrity_Types_Path>
-    <ChaosAnalyzers_ClassIntegrity_Types_FullPath>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).csproj</ChaosAnalyzers_ClassIntegrity_Types_FullPath>
+  <PropertyGroup>
+    <ChaosAnalyzers_ClassIntegrity_Types_CsProj>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).csproj</ChaosAnalyzers_ClassIntegrity_Types_CsProj>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Types_FullPath)')">
-    <ProjectReference Include="$(ChaosAnalyzers_ClassIntegrity_Types_FullPath)">
+  <ItemGroup Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Types_CsProj)')">
+    <ProjectReference Include="$(ChaosAnalyzers_ClassIntegrity_Types_CsProj)">
       <Project>{531C057D-4677-462A-A664-1AA5DED0367B}</Project>
       <Name>$(ChaosAnalyzers_ClassIntegrity_Types_Repo)</Name>
     </ProjectReference>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosAnalyzers_ClassIntegrity_Repo>ChaosAnalyzers.ClassIntegrity</ChaosAnalyzers_ClassIntegrity_Repo>
+    <ChaosAnalyzers_ClassIntegrity_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosAnalyzers_ClassIntegrity_Repo)$(SubmoduleRefRegex_Suffix)</ChaosAnalyzers_ClassIntegrity_Regex>
+    <ChaosAnalyzers_ClassIntegrity_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosAnalyzers_ClassIntegrity_Regex)'))</ChaosAnalyzers_ClassIntegrity_Path>
+  </PropertyGroup>
+
+</Project>
