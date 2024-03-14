@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosBuild_CodeFormatter_Tasks_Repo>ChaosBuild.CodeFormatter.Tasks</ChaosBuild_CodeFormatter_Tasks_Repo>
+    <ChaosBuild_CodeFormatter_Tasks_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosBuild_CodeFormatter_Tasks_Repo)$(SubmoduleRefRegex_Suffix)</ChaosBuild_CodeFormatter_Tasks_Regex>
+    <ChaosBuild_CodeFormatter_Tasks_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosBuild_CodeFormatter_Tasks_Regex)'))</ChaosBuild_CodeFormatter_Tasks_Path>
+  </PropertyGroup>
+
+</Project>
