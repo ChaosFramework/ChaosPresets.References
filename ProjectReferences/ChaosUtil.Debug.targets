@@ -10,7 +10,7 @@
     <ChaosUtil_Debug_Repo>ChaosUtil.Debug</ChaosUtil_Debug_Repo>
     <ChaosUtil_Debug_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosUtil_Debug_Repo)$(SubmoduleRefRegex_Suffix)</ChaosUtil_Debug_Regex>
     <ChaosUtil_Debug_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosUtil_Debug_Regex)'))</ChaosUtil_Debug_Path>
-    <ChaosUtil_Debug_FullPath>$(SolutionDir)/$(ChaosUtil_Debug_Path)/$(ChaosUtil_Debug_Repo).csproj</ChaosUtil_Debug_FullPath>
+    <ChaosUtil_Debug_FullPath>$(SolutionDir)/$(ChaosUtil_Debug_Path)/$(ChaosUtil_Debug_Repo).$(ProjectStyle).csproj</ChaosUtil_Debug_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosUtil_Debug_FullPath)')">

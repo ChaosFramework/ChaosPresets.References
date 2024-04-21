@@ -10,7 +10,7 @@
     <ChaosUtil_Serialization_Repo>ChaosUtil.Serialization</ChaosUtil_Serialization_Repo>
     <ChaosUtil_Serialization_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosUtil_Serialization_Repo)$(SubmoduleRefRegex_Suffix)</ChaosUtil_Serialization_Regex>
     <ChaosUtil_Serialization_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosUtil_Serialization_Regex)'))</ChaosUtil_Serialization_Path>
-    <ChaosUtil_Serialization_FullPath>$(SolutionDir)/$(ChaosUtil_Serialization_Path)/$(ChaosUtil_Serialization_Repo).csproj</ChaosUtil_Serialization_FullPath>
+    <ChaosUtil_Serialization_FullPath>$(SolutionDir)/$(ChaosUtil_Serialization_Path)/$(ChaosUtil_Serialization_Repo).$(ProjectStyle).csproj</ChaosUtil_Serialization_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosUtil_Serialization_FullPath)')">

@@ -10,7 +10,7 @@
     <ChaosBuild_CodeFormatter_Repo>ChaosBuild.CodeFormatter</ChaosBuild_CodeFormatter_Repo>
     <ChaosBuild_CodeFormatter_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosBuild_CodeFormatter_Repo)$(SubmoduleRefRegex_Suffix)</ChaosBuild_CodeFormatter_Regex>
     <ChaosBuild_CodeFormatter_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosBuild_CodeFormatter_Regex)'))</ChaosBuild_CodeFormatter_Path>
-    <ChaosBuild_CodeFormatter_FullPath>$(SolutionDir)/$(ChaosBuild_CodeFormatter_Path)/$(ChaosBuild_CodeFormatter_Repo).csproj</ChaosBuild_CodeFormatter_FullPath>
+    <ChaosBuild_CodeFormatter_FullPath>$(SolutionDir)/$(ChaosBuild_CodeFormatter_Path)/$(ChaosBuild_CodeFormatter_Repo).$(ProjectStyle).csproj</ChaosBuild_CodeFormatter_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosBuild_CodeFormatter_FullPath)')">

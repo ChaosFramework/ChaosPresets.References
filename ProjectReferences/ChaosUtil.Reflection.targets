@@ -10,7 +10,7 @@
     <ChaosUtil_Reflection_Repo>ChaosUtil.Reflection</ChaosUtil_Reflection_Repo>
     <ChaosUtil_Reflection_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosUtil_Reflection_Repo)$(SubmoduleRefRegex_Suffix)</ChaosUtil_Reflection_Regex>
     <ChaosUtil_Reflection_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosUtil_Reflection_Regex)'))</ChaosUtil_Reflection_Path>
-    <ChaosUtil_Reflection_FullPath>$(SolutionDir)/$(ChaosUtil_Reflection_Path)/$(ChaosUtil_Reflection_Repo).csproj</ChaosUtil_Reflection_FullPath>
+    <ChaosUtil_Reflection_FullPath>$(SolutionDir)/$(ChaosUtil_Reflection_Path)/$(ChaosUtil_Reflection_Repo).$(ProjectStyle).csproj</ChaosUtil_Reflection_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosUtil_Reflection_FullPath)')">
