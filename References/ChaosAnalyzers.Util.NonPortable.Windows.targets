@@ -7,7 +7,7 @@
     />
 
   <PropertyGroup>
-    <ChaosAnalyzers_Util_NonPortable_Windows_Ref>$(SolutionDir)/$(ChaosAnalyzers_Util_NonPortable_Windows_Path)/build/bin/$(ChaosAnalyzers_Util_NonPortable_Windows_Repo).dll</ChaosAnalyzers_Util_NonPortable_Windows_Ref>
+    <ChaosAnalyzers_Util_NonPortable_Windows_Ref>$(SolutionDir)/$(ChaosAnalyzers_Util_NonPortable_Windows_Path)/build/bin/$(TargetFramework)/$(ChaosAnalyzers_Util_NonPortable_Windows_Repo).dll</ChaosAnalyzers_Util_NonPortable_Windows_Ref>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosAnalyzers_Util_NonPortable_Windows_Ref)')">
