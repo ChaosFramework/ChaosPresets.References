@@ -6,15 +6,10 @@
     Condition=" '$(ChaosAnalyzers_CleanCode_Path)' == '' "
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_CleanCode_Analyzer>$(SolutionDir)/$(ChaosAnalyzers_CleanCode_Path)/build/bin/$(ChaosAnalyzers_CleanCode_Repo).dll</ChaosAnalyzers_CleanCode_Analyzer>
+  <PropertyGroup Condition="'$(ChaosAnalyzers_CleanCode_Analyzer_TF)' == ''">
+    <ChaosAnalyzers_CleanCode_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_CleanCode_Analyzer_TF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Analyzer
-      Include="$(ChaosAnalyzers_CleanCode_Analyzer)"
-      Condition="Exists('$(ChaosAnalyzers_CleanCode_Analyzer)')"
-      />
-  </ItemGroup>
+  <Import Project="./.ProjectStyle/ChaosAnalyzers.CleanCode_$(ProjectStyle).targets" />
 
 </Project>
