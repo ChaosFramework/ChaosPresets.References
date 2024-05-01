@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <ItemGroup>
+    <ProjectReference
+      Include="$(SolutionDir)/$(ChaosAnalyzers_Util_NonPortable_Windows_Path)/$(ChaosAnalyzers_Util_NonPortable_Windows_Repo).$(ProjectStyle).csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+      SetTargetFramework="TargetFramework=$(ChaosAnalyzers_Util_NonPortable_Windows_Analyzer_TF)"
+      />
+  </ItemGroup>
+
+</Project>

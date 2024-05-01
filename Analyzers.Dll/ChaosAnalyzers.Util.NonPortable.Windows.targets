@@ -6,15 +6,10 @@
     Condition=" '$(ChaosAnalyzers_Util_NonPortable_Windows_Path)' == '' "
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_Util_NonPortable_Windows_Analyzer>$(SolutionDir)/$(ChaosAnalyzers_Util_NonPortable_Windows_Path)/build/bin/$(ChaosAnalyzers_Util_NonPortable_Windows_Repo).dll</ChaosAnalyzers_Util_NonPortable_Windows_Analyzer>
+  <PropertyGroup Condition="'$(ChaosAnalyzers_Util_NonPortable_Windows_Analyzer_TF)' == ''">
+    <ChaosAnalyzers_Util_NonPortable_Windows_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_Util_NonPortable_Windows_Analyzer_TF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Analyzer
-      Include="$(ChaosAnalyzers_Util_NonPortable_Windows_Analyzer)"
-      Condition="Exists('$(ChaosAnalyzers_Util_NonPortable_Windows_Analyzer)')"
-      />
-  </ItemGroup>
+  <Import Project="./.ProjectStyle/ChaosAnalyzers.Util.NonPortable.Windows_$(ProjectStyle).targets" />
 
 </Project>
