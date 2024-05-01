@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <ChaosAnalyzers_Analyzer>$(SolutionDir)/$(ChaosAnalyzers_Path)/build/bin/$(ChaosAnalyzers_Analyzer_TF)/$(ChaosAnalyzers_Repo).dll</ChaosAnalyzers_Analyzer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Analyzer
+      Include="$(ChaosAnalyzers_Analyzer)"
+      Condition="Exists('$(ChaosAnalyzers_Analyzer)')"
+      />
+  </ItemGroup>
+
+</Project>

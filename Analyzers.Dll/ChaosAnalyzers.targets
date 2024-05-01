@@ -6,15 +6,10 @@
     Condition=" '$(ChaosAnalyzers_Path)' == '' "
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_Analyzer>$(SolutionDir)/$(ChaosAnalyzers_Path)/build/bin/$(ChaosAnalyzers_Repo).dll</ChaosAnalyzers_Analyzer>
+  <PropertyGroup Condition="'$(ChaosAnalyzers_Analyzer_TF)' == ''">
+    <ChaosAnalyzers_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_Analyzer_TF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Analyzer
-      Include="$(ChaosAnalyzers_Analyzer)"
-      Condition="Exists('$(ChaosAnalyzers_Analyzer)')"
-      />
-  </ItemGroup>
+  <Import Project="./.ProjectStyle/ChaosAnalyzers_$(ProjectStyle).targets" />
 
 </Project>
