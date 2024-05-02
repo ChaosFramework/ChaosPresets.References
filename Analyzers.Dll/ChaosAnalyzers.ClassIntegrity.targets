@@ -6,15 +6,10 @@
     Condition=" '$(ChaosAnalyzers_ClassIntegrity_Path)' == '' "
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_ClassIntegrity_Analyzer>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Path)/build/bin/$(ChaosAnalyzers_ClassIntegrity_Repo).dll</ChaosAnalyzers_ClassIntegrity_Analyzer>
+  <PropertyGroup Condition="'$(ChaosAnalyzers_ClassIntegrity_Analyzer_TF)' == ''">
+    <ChaosAnalyzers_ClassIntegrity_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_ClassIntegrity_Analyzer_TF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Analyzer
-      Include="$(ChaosAnalyzers_ClassIntegrity_Analyzer)"
-      Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Analyzer)')"
-      />
-  </ItemGroup>
+  <Import Project="./.ProjectStyle/ChaosAnalyzers.ClassIntegrity_$(ProjectStyle).targets" />
 
 </Project>
