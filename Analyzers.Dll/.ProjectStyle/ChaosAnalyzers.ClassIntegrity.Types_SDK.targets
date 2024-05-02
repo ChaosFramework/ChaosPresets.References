@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <ItemGroup>
+    <ProjectReference
+      Include="$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).$(ProjectStyle).csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+      SetTargetFramework="TargetFramework=$(ChaosAnalyzers_ClassIntegrity_Types_Analyzer_TF)"
+      />
+  </ItemGroup>
+
+</Project>
