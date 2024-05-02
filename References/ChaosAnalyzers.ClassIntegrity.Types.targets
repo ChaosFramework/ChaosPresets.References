@@ -3,17 +3,13 @@
 
   <Import
     Project="../Repositories/ChaosAnalyzers.ClassIntegrity.Types.targets"
-    Condition="$(ChaosAnalyzers_ClassIntegrity_Types_Path) == '' "
+    Condition="'$(ChaosAnalyzers_ClassIntegrity_Types_Path)' == ''"
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_ClassIntegrity_Types_Ref>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/build/bin/$(TargetFramework)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).dll</ChaosAnalyzers_ClassIntegrity_Types_Ref>
+  <PropertyGroup Condition="'$(ChaosAnalyzers_ClassIntegrity_Types_Ref_TF)' == ''">
+    <ChaosAnalyzers_ClassIntegrity_Types_Ref_TF>$(TargetFramework)</ChaosAnalyzers_ClassIntegrity_Types_Ref_TF>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Types_Ref)')">
-    <Reference Include="$(ChaosAnalyzers_ClassIntegrity_Types_Repo)">
-      <HintPath>$(ChaosAnalyzers_ClassIntegrity_Types_Ref)</HintPath>
-    </Reference>
-  </ItemGroup>
+  <Import Project="./.ProjectStyle/ChaosAnalyzers.ClassIntegrity.Types_$(ProjectStyle).targets" />
 
 </Project>
