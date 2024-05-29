@@ -10,7 +10,7 @@
     <ChaosFramework_Core_Repo>ChaosFramework.Core</ChaosFramework_Core_Repo>
     <ChaosFramework_Core_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Core_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Core_Regex>
     <ChaosFramework_Core_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Core_Regex)'))</ChaosFramework_Core_Path>
-    <ChaosFramework_Core_FullPath>$(SolutionDir)/$(ChaosFramework_Core_Path)/$(ChaosFramework_Core_Repo).csproj</ChaosFramework_Core_FullPath>
+    <ChaosFramework_Core_FullPath>$(SolutionDir)/$(ChaosFramework_Core_Path)/$(ChaosFramework_Core_Repo).$(ProjectStyle).csproj</ChaosFramework_Core_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosFramework_Core_FullPath)')">
