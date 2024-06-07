@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <ChaosGenerators_Types_Ref>$(SolutionDir)$(ChaosGenerators_Types_Path)build/bin/$(ChaosGenerators_Types_Ref_TF)/$(ChaosGenerators_Repo).Types.dll</ChaosGenerators_Types_Ref>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosGenerators_Types_Ref)')">
+    <Reference Include="$(ChaosGenerators_Repo).Types">
+      <HintPath>$(ChaosGenerators_Types_Ref)</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
