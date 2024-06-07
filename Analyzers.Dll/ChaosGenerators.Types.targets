@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../Repositories/ChaosGenerators.targets"
+    Condition=" '$(ChaosGenerators_Path)' == '' "
+    />
+
+  <PropertyGroup Condition="'$(ChaosGenerators_Types_Analyzer_TF)' == ''">
+    <ChaosGenerators_Types_Analyzer_TF>$(TargetFramework)</ChaosGenerators_Types_Analyzer_TF>
+  </PropertyGroup>
+
+  <Import Project="./.ProjectStyle/ChaosGenerators.Types_$(ProjectStyle).targets" />
+
+</Project>
