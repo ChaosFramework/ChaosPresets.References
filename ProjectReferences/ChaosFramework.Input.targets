@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Input_Repo>ChaosFramework.Input</ChaosFramework_Input_Repo>
+    <ChaosFramework_Input_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Input_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Input_Regex>
+    <ChaosFramework_Input_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Input_Regex)'))</ChaosFramework_Input_Path>
+    <ChaosFramework_Input_FullPath>$(SolutionDir)/$(ChaosFramework_Input_Path)/$(ChaosFramework_Input_Repo).csproj</ChaosFramework_Input_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Input_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Input_FullPath)">
+      <Project>{3B397619-8336-43A0-B615-12905389D6DA}</Project>
+      <Name>$(ChaosFramework_Input_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
