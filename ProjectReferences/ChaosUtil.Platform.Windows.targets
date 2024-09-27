@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosUtil_Platform_Windows_Repo>ChaosUtil.Platform.Windows</ChaosUtil_Platform_Windows_Repo>
+    <ChaosUtil_Platform_Windows_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosUtil_Platform_Windows_Repo)$(SubmoduleRefRegex_Suffix)</ChaosUtil_Platform_Windows_Regex>
+    <ChaosUtil_Platform_Windows_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosUtil_Platform_Windows_Regex)'))</ChaosUtil_Platform_Windows_Path>
+    <ChaosUtil_Platform_Windows_FullPath>$(SolutionDir)/$(ChaosUtil_Platform_Windows_Path)/$(ChaosUtil_Platform_Windows_Repo).csproj</ChaosUtil_Platform_Windows_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosUtil_Platform_Windows_FullPath)')">
+    <ProjectReference Include="$(ChaosUtil_Platform_Windows_FullPath)">
+      <Project>{9FFBBF0A-A525-43A3-86D7-889711A1139D}</Project>
+      <Name>$(ChaosUtil_Platform_Windows_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
