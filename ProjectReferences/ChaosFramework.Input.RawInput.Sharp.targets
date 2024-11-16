@@ -7,16 +7,16 @@
     />
 
   <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
-    <ChaosFramework_Input_Windows_RawInput_Sharp_Repo>ChaosFramework.Input.Windows.RawInput.Sharp</ChaosFramework_Input_Windows_RawInput_Sharp_Repo>
-    <ChaosFramework_Input_Windows_RawInput_Sharp_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Input_Windows_RawInput_Sharp_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Input_Windows_RawInput_Sharp_Regex>
-    <ChaosFramework_Input_Windows_RawInput_Sharp_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Input_Windows_RawInput_Sharp_Regex)'))</ChaosFramework_Input_Windows_RawInput_Sharp_Path>
-    <ChaosFramework_Input_Windows_RawInput_Sharp_FullPath>$(SolutionDir)/$(ChaosFramework_Input_Windows_RawInput_Sharp_Path)/$(ChaosFramework_Input_Windows_RawInput_Sharp_Repo).csproj</ChaosFramework_Input_Windows_RawInput_Sharp_FullPath>
+    <ChaosFramework_Input_RawInput_Sharp_Repo>ChaosFramework.Input.RawInput.Sharp</ChaosFramework_Input_RawInput_Sharp_Repo>
+    <ChaosFramework_Input_RawInput_Sharp_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Input_RawInput_Sharp_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Input_RawInput_Sharp_Regex>
+    <ChaosFramework_Input_RawInput_Sharp_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Input_RawInput_Sharp_Regex)'))</ChaosFramework_Input_RawInput_Sharp_Path>
+    <ChaosFramework_Input_RawInput_Sharp_FullPath>$(SolutionDir)/$(ChaosFramework_Input_RawInput_Sharp_Path)/$(ChaosFramework_Input_RawInput_Sharp_Repo).csproj</ChaosFramework_Input_RawInput_Sharp_FullPath>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists('$(ChaosFramework_Input_Windows_RawInput_Sharp_FullPath)')">
-    <ProjectReference Include="$(ChaosFramework_Input_Windows_RawInput_Sharp_FullPath)">
+  <ItemGroup Condition="Exists('$(ChaosFramework_Input_RawInput_Sharp_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Input_RawInput_Sharp_FullPath)">
       <Project>{6ACF9FFF-0B0A-4F49-A541-400D1F58ABFB}</Project>
-      <Name>$(ChaosFramework_Input_Windows_RawInput_Sharp_Repo)</Name>
+      <Name>$(ChaosFramework_Input_RawInput_Sharp_Repo)</Name>
     </ProjectReference>
   </ItemGroup>
 
