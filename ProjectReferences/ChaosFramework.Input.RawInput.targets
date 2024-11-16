@@ -7,16 +7,16 @@
     />
 
   <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
-    <ChaosFramework_Input_Windows_Repo>ChaosFramework.Input.Windows</ChaosFramework_Input_Windows_Repo>
-    <ChaosFramework_Input_Windows_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Input_Windows_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Input_Windows_Regex>
-    <ChaosFramework_Input_Windows_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Input_Windows_Regex)'))</ChaosFramework_Input_Windows_Path>
-    <ChaosFramework_Input_Windows_FullPath>$(SolutionDir)/$(ChaosFramework_Input_Windows_Path)/$(ChaosFramework_Input_Windows_Repo).csproj</ChaosFramework_Input_Windows_FullPath>
+    <ChaosFramework_Input_RawInput_Repo>ChaosFramework.Input.RawInput</ChaosFramework_Input_RawInput_Repo>
+    <ChaosFramework_Input_RawInput_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Input_RawInput_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Input_RawInput_Regex>
+    <ChaosFramework_Input_RawInput_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Input_RawInput_Regex)'))</ChaosFramework_Input_RawInput_Path>
+    <ChaosFramework_Input_RawInput_FullPath>$(SolutionDir)/$(ChaosFramework_Input_RawInput_Path)/$(ChaosFramework_Input_RawInput_Repo).csproj</ChaosFramework_Input_RawInput_FullPath>
   </PropertyGroup>
 
-  <ItemGroup Condition="Exists('$(ChaosFramework_Input_Windows_FullPath)')">
-    <ProjectReference Include="$(ChaosFramework_Input_Windows_FullPath)">
+  <ItemGroup Condition="Exists('$(ChaosFramework_Input_RawInput_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Input_RawInput_FullPath)">
       <Project>{DE26426E-65EF-41BB-846B-3ED3A6B8E287}</Project>
-      <Name>$(ChaosFramework_Input_Windows_Repo)</Name>
+      <Name>$(ChaosFramework_Input_RawInput_Repo)</Name>
     </ProjectReference>
   </ItemGroup>
 
