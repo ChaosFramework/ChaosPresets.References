@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Components_Repo>ChaosFramework.Components</ChaosFramework_Components_Repo>
+    <ChaosFramework_Components_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Components_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Components_Regex>
+    <ChaosFramework_Components_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Components_Regex)'))</ChaosFramework_Components_Path>
+    <ChaosFramework_Components_FullPath>$(SolutionDir)/$(ChaosFramework_Components_Path)/$(ChaosFramework_Components_Repo).csproj</ChaosFramework_Components_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Components_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Components_FullPath)">
+      <Project>{310DB2DF-9F43-4ABA-978D-6EFF4DE58C92}</Project>
+      <Name>$(ChaosFramework_Components_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
