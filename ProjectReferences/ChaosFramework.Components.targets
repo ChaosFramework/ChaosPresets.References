@@ -15,7 +15,7 @@
 
   <ItemGroup Condition="Exists('$(ChaosFramework_Components_FullPath)')">
     <ProjectReference Include="$(ChaosFramework_Components_FullPath)">
-      <Project>{310DB2DF-9F43-4ABA-978D-6EFF4DE58C92}</Project>
+      <Project>{B3850070-9BB9-4D1A-9F1F-7B67AC61AE75}</Project>
       <Name>$(ChaosFramework_Components_Repo)</Name>
     </ProjectReference>
   </ItemGroup>
