@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Sound_OpenAL_Repo>ChaosFramework.Sound.OpenAL</ChaosFramework_Sound_OpenAL_Repo>
+    <ChaosFramework_Sound_OpenAL_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Sound_OpenAL_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Sound_OpenAL_Regex>
+    <ChaosFramework_Sound_OpenAL_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Sound_OpenAL_Regex)'))</ChaosFramework_Sound_OpenAL_Path>
+    <ChaosFramework_Sound_OpenAL_FullPath>$(SolutionDir)/$(ChaosFramework_Sound_OpenAL_Path)/$(ChaosFramework_Sound_OpenAL_Repo).csproj</ChaosFramework_Sound_OpenAL_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Sound_OpenAL_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Sound_OpenAL_FullPath)">
+      <Project>{9921CBB7-674B-4162-AED3-AC8A16E580E5}</Project>
+      <Name>$(ChaosFramework_Sound_OpenAL_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
