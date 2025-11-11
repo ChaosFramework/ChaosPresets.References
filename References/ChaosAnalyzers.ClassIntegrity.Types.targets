@@ -10,6 +10,11 @@
     <ChaosAnalyzers_ClassIntegrity_Types_Ref_TF>$(TargetFramework)</ChaosAnalyzers_ClassIntegrity_Types_Ref_TF>
   </PropertyGroup>
 
-  <Import Project="./.ProjectStyle/ChaosAnalyzers.ClassIntegrity.Types_$(ProjectStyle).targets" />
+  <ItemGroup>
+    <ProjectReference
+      Include="$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).csproj"
+      SetTargetFramework="TargetFramework=$(ChaosAnalyzers_ClassIntegrity_Types_Ref_TF)"
+      />
+  </ItemGroup>
 
 </Project>

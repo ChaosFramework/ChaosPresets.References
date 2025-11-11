@@ -10,6 +10,13 @@
     <ChaosAnalyzers_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_Analyzer_TF>
   </PropertyGroup>
 
-  <Import Project="./.ProjectStyle/ChaosAnalyzers_$(ProjectStyle).targets" />
+  <ItemGroup>
+    <ProjectReference
+      Include="$(SolutionDir)/$(ChaosAnalyzers_Path)/$(ChaosAnalyzers_Repo).csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+      SetTargetFramework="TargetFramework=$(ChaosAnalyzers_Analyzer_TF)"
+      />
+  </ItemGroup>
 
 </Project>

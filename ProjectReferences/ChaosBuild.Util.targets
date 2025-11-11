@@ -10,7 +10,7 @@
     <ChaosBuild_Util_Repo>ChaosBuild.Util</ChaosBuild_Util_Repo>
     <ChaosBuild_Util_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosBuild_Util_Repo)$(SubmoduleRefRegex_Suffix)</ChaosBuild_Util_Regex>
     <ChaosBuild_Util_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosBuild_Util_Regex)'))</ChaosBuild_Util_Path>
-    <ChaosBuild_Util_FullPath>$(SolutionDir)/$(ChaosBuild_Util_Path)/$(ChaosBuild_Util_Repo).$(ProjectStyle).csproj</ChaosBuild_Util_FullPath>
+    <ChaosBuild_Util_FullPath>$(SolutionDir)/$(ChaosBuild_Util_Path)/$(ChaosBuild_Util_Repo).csproj</ChaosBuild_Util_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosBuild_Util_FullPath)')">

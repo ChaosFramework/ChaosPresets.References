@@ -10,7 +10,7 @@
     <ChaosUtil_Platform_Repo>ChaosUtil.Platform</ChaosUtil_Platform_Repo>
     <ChaosUtil_Platform_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosUtil_Platform_Repo)$(SubmoduleRefRegex_Suffix)</ChaosUtil_Platform_Regex>
     <ChaosUtil_Platform_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosUtil_Platform_Regex)'))</ChaosUtil_Platform_Path>
-    <ChaosUtil_Platform_FullPath>$(SolutionDir)/$(ChaosUtil_Platform_Path)/$(ChaosUtil_Platform_Repo).$(ProjectStyle).csproj</ChaosUtil_Platform_FullPath>
+    <ChaosUtil_Platform_FullPath>$(SolutionDir)/$(ChaosUtil_Platform_Path)/$(ChaosUtil_Platform_Repo).csproj</ChaosUtil_Platform_FullPath>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosUtil_Platform_FullPath)')">

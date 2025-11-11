@@ -7,7 +7,7 @@
     />
 
   <PropertyGroup>
-    <ChaosAnalyzers_ClassIntegrity_Types_CsProj>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).$(ProjectStyle).csproj</ChaosAnalyzers_ClassIntegrity_Types_CsProj>
+    <ChaosAnalyzers_ClassIntegrity_Types_CsProj>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Types_Path)/$(ChaosAnalyzers_ClassIntegrity_Types_Repo).csproj</ChaosAnalyzers_ClassIntegrity_Types_CsProj>
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Types_CsProj)')">
