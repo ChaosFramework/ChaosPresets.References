@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project>
 
   <Import
     Project="../Repositories/ChaosAnalyzers.CleanCode.targets"
     Condition=" '$(ChaosAnalyzers_CleanCode_Path)' == '' "
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_CleanCode_Include>$(SolutionDir)/$(ChaosAnalyzers_CleanCode_Path)/export/Include.targets</ChaosAnalyzers_CleanCode_Include>
+  <PropertyGroup Condition="'$(ChaosAnalyzers_CleanCode_Analyzer_TF)' == ''">
+    <ChaosAnalyzers_CleanCode_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_CleanCode_Analyzer_TF>
   </PropertyGroup>
 
-  <Import
-    Project="$(ChaosAnalyzers_CleanCode_Include)"
-    Condition="Exists('$(ChaosAnalyzers_CleanCode_Include)')"
-    />
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)/$(ChaosAnalyzers_CleanCode_Path)/$(ChaosAnalyzers_CleanCode_Repo).csproj">
+      <OutputItemType>Analyzer</OutputItemType>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetTargetFramework>TargetFramework=$(ChaosAnalyzers_CleanCode_Analyzer_TF)</SetTargetFramework>
+    </ProjectReference>
+  </ItemGroup>
 
 </Project>
