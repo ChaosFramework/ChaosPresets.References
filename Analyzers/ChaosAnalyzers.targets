@@ -12,6 +12,7 @@
 
   <ItemGroup Condition="Exists('$(ChaosAnalyzers_CsProj)')">
     <ProjectReference Include="$(ChaosAnalyzers_CsProj)">
+      <OutputItemType>Analyzer</OutputItemType>
       <Project>{5AD17D0E-56B3-499D-920C-EE08E40482E1}</Project>
       <Name>$(ChaosAnalyzers_Repo)</Name>
     </ProjectReference>

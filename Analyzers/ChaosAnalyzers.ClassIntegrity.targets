@@ -6,6 +6,8 @@
     Condition=" '$(ChaosAnalyzers_ClassIntegrity_Path)' == '' "
     />
 
+  <Import Project="../ProjectReferences/ChaosAnalyzers.ClassIntegrity.Types.targets" />
+
   <PropertyGroup Condition="'$(ChaosAnalyzers_ClassIntegrity_Analyzer_TF)' == ''">
     <ChaosAnalyzers_ClassIntegrity_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_ClassIntegrity_Analyzer_TF>
   </PropertyGroup>
