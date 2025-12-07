@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Math_Repo>ChaosFramework.Math</ChaosFramework_Math_Repo>
+    <ChaosFramework_Math_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Math_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Math_Regex>
+    <ChaosFramework_Math_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Math_Regex)'))</ChaosFramework_Math_Path>
+    <ChaosFramework_Math_FullPath>$(SolutionDir)/$(ChaosFramework_Math_Path)/$(ChaosFramework_Math_Repo).csproj</ChaosFramework_Math_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Math_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Math_FullPath)">
+      <Project>{EAB5FF3F-956D-4B25-A284-B847616A2B00}</Project>
+      <Name>$(ChaosFramework_Math_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
