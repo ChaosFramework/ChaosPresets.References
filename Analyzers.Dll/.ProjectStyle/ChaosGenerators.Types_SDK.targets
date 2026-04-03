@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <ItemGroup>
+    <ProjectReference
+      Include="$(SolutionDir)/$(ChaosGenerators_Path)/$(ChaosGenerators_Repo).Types/$(ChaosGenerators_Repo).Types.$(ProjectStyle).csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="true"
+      SetTargetFramework="TargetFramework=$(ChaosGenerators_Types_Analyzer_TF)"
+      />
+  </ItemGroup>
+
+</Project>

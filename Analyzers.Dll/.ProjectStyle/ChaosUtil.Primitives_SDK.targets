@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+  <ItemGroup>
+    <ProjectReference
+      Include="$(SolutionDir)/$(ChaosUtil_Primitives_Path)/$(ChaosUtil_Primitives_Repo).$(ProjectStyle).csproj"
+      OutputItemType="Analyzer"
+      ReferenceOutputAssembly="false"
+      SetTargetFramework="TargetFramework=$(ChaosUtil_Primitives_Analyzer_TF)"
+      />
+  </ItemGroup>
+
+</Project>

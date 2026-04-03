@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <ChaosUtil_Primitives_Analyzer>$(SolutionDir)/$(ChaosUtil_Primitives_Path)/build/bin/$(ChaosUtil_Primitives_Analyzer_TF)/$(ChaosUtil_Primitives_Repo).dll</ChaosUtil_Primitives_Analyzer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Analyzer
+      Include="$(ChaosUtil_Primitives_Analyzer)"
+      Condition="Exists('$(ChaosUtil_Primitives_Analyzer)')"
+      />
+  </ItemGroup>
+
+</Project>
