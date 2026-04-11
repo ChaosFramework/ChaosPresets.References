@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Shapes_Repo>ChaosFramework.Shapes</ChaosFramework_Shapes_Repo>
+    <ChaosFramework_Shapes_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Shapes_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Shapes_Regex>
+    <ChaosFramework_Shapes_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Shapes_Regex)'))</ChaosFramework_Shapes_Path>
+    <ChaosFramework_Shapes_FullPath>$(SolutionDir)/$(ChaosFramework_Shapes_Path)/$(ChaosFramework_Shapes_Repo).csproj</ChaosFramework_Shapes_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Shapes_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Shapes_FullPath)">
+      <Project>{4ED35638-6132-4A67-8037-D5B003431DBD}</Project>
+      <Name>$(ChaosFramework_Shapes_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
