@@ -15,7 +15,7 @@
 
   <ItemGroup Condition="Exists('$(ChaosFramework_Graphics_OpenGL_FullPath)')">
     <ProjectReference Include="$(ChaosFramework_Graphics_OpenGL_FullPath)">
-      <Project>{3C8E5ADC-0E53-40FA-B6F3-3B9DE5996D79F}</Project>
+      <Project>{3C8E5ADC-0E53-40FA-B6F3-3B9DE5996D79}</Project>
       <Name>$(ChaosFramework_Graphics_OpenGL_Repo)</Name>
     </ProjectReference>
   </ItemGroup>
