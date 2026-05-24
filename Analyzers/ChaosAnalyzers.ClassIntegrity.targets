@@ -8,15 +8,10 @@
 
   <Import Project="../ProjectReferences/ChaosAnalyzers.ClassIntegrity.Types.targets" />
 
-  <PropertyGroup Condition="'$(ChaosAnalyzers_ClassIntegrity_Analyzer_TF)' == ''">
-    <ChaosAnalyzers_ClassIntegrity_Analyzer_TF>$(TargetFramework)</ChaosAnalyzers_ClassIntegrity_Analyzer_TF>
-  </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Path)/$(ChaosAnalyzers_ClassIntegrity_Repo).csproj">
       <OutputItemType>Analyzer</OutputItemType>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <SetTargetFramework>TargetFramework=$(ChaosAnalyzers_ClassIntegrity_Analyzer_TF)</SetTargetFramework>
     </ProjectReference>
   </ItemGroup>
 
