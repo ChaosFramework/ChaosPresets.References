@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project>
 
   <Import
     Project="../Repositories/ChaosAnalyzers.ClassIntegrity.targets"
     Condition=" '$(ChaosAnalyzers_ClassIntegrity_Path)' == '' "
     />
 
-  <PropertyGroup>
-    <ChaosAnalyzers_ClassIntegrity_Include>$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Path)/export/Include.targets</ChaosAnalyzers_ClassIntegrity_Include>
-  </PropertyGroup>
+  <Import Project="../ProjectReferences/ChaosAnalyzers.ClassIntegrity.Types.targets" />
 
-  <Import
-    Project="$(ChaosAnalyzers_ClassIntegrity_Include)"
-    Condition="Exists('$(ChaosAnalyzers_ClassIntegrity_Include)')"
-    />
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)/$(ChaosAnalyzers_ClassIntegrity_Path)/$(ChaosAnalyzers_ClassIntegrity_Repo).csproj">
+      <OutputItemType>Analyzer</OutputItemType>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
 
 </Project>

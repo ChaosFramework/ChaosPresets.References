@@ -7,7 +7,7 @@
     />
 
   <UsingTask
-    TaskName="ChangedProjectFiles"
+    TaskName="ChaosBuild.CodeFormatter.Tasks.Tasks.ChangedProjectFiles"
     AssemblyFile="$(SolutionDir)/$(ChaosBuild_CodeFormatter_Tasks_Path)/build/bin/$(ChaosBuild_CodeFormatter_Tasks_Repo).dll"
     />
 
@@ -15,7 +15,7 @@
     Name="FormatChangedProjectFiles"
     BeforeTargets="BeforeBuild"
     >
-    <ChangedProjectFiles
+    <ChaosBuild.CodeFormatter.Tasks.Tasks.ChangedProjectFiles
       ProjectPath="$(ProjectPath)"
       />
   </Target>
