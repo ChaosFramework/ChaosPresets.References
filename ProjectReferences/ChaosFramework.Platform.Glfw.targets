@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Platform_Glfw_Repo>ChaosFramework.Platform.Glfw</ChaosFramework_Platform_Glfw_Repo>
+    <ChaosFramework_Platform_Glfw_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Platform_Glfw_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Platform_Glfw_Regex>
+    <ChaosFramework_Platform_Glfw_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Platform_Glfw_Regex)'))</ChaosFramework_Platform_Glfw_Path>
+    <ChaosFramework_Platform_Glfw_FullPath>$(SolutionDir)/$(ChaosFramework_Platform_Glfw_Path)/$(ChaosFramework_Platform_Glfw_Repo).csproj</ChaosFramework_Platform_Glfw_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Platform_Glfw_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Platform_Glfw_FullPath)">
+      <Project>{CF38EE07-4EA5-4B9E-BA74-80E44550319E}</Project>
+      <Name>$(ChaosFramework_Platform_Glfw_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
