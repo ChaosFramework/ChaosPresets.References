@@ -14,7 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosUtil_Platform_Windows_FullPath)')">
-    <ProjectReference Include="$(ChaosUtil_Platform_Windows_FullPath)">
+    <ProjectReference
+      Include="$(ChaosUtil_Platform_Windows_FullPath)"
+      Condition="'$(OS)'=='Windows'"
+      >
       <Project>{9FFBBF0A-A525-43A3-86D7-889711A1139D}</Project>
       <Name>$(ChaosUtil_Platform_Windows_Repo)</Name>
     </ProjectReference>

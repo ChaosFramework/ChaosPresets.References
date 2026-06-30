@@ -14,7 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup Condition="Exists('$(ChaosFramework_Input_RawInput_FullPath)')">
-    <ProjectReference Include="$(ChaosFramework_Input_RawInput_FullPath)">
+    <ProjectReference
+      Include="$(ChaosFramework_Input_RawInput_FullPath)"
+      Condition="'$(OS)'=='Windows'"
+      >
       <Project>{DE26426E-65EF-41BB-846B-3ED3A6B8E287}</Project>
       <Name>$(ChaosFramework_Input_RawInput_Repo)</Name>
     </ProjectReference>

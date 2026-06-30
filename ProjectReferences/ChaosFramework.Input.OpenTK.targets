@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Input_OpenTK_Repo>ChaosFramework.Input.OpenTK</ChaosFramework_Input_OpenTK_Repo>
+    <ChaosFramework_Input_OpenTK_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Input_OpenTK_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Input_OpenTK_Regex>
+    <ChaosFramework_Input_OpenTK_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Input_OpenTK_Regex)'))</ChaosFramework_Input_OpenTK_Path>
+    <ChaosFramework_Input_OpenTK_FullPath>$(SolutionDir)/$(ChaosFramework_Input_OpenTK_Path)/$(ChaosFramework_Input_OpenTK_Repo).csproj</ChaosFramework_Input_OpenTK_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Input_OpenTK_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Input_OpenTK_FullPath)">
+      <Project>{6CDA2FEB-0852-44AA-ABBA-B76AA3EA145A}</Project>
+      <Name>$(ChaosFramework_Input_OpenTK_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
