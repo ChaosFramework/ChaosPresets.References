@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import
+    Project="../SubmoduleReference.targets"
+    Condition=" '$(SubmoduleRefRegex_Prefix)' == '' "
+    />
+
+  <PropertyGroup Condition=" '$(SubmoduleRefRegex_Prefix)' != '' ">
+    <ChaosFramework_Menu_OpenGL_Repo>ChaosFramework.Menu.OpenGL</ChaosFramework_Menu_OpenGL_Repo>
+    <ChaosFramework_Menu_OpenGL_Regex>$(SubmoduleRefRegex_Prefix)$(ChaosFramework_Menu_OpenGL_Repo)$(SubmoduleRefRegex_Suffix)</ChaosFramework_Menu_OpenGL_Regex>
+    <ChaosFramework_Menu_OpenGL_Path>$([System.Text.RegularExpressions.Regex]::Match('$(SubmoduleIndex)','$(ChaosFramework_Menu_OpenGL_Regex)'))</ChaosFramework_Menu_OpenGL_Path>
+    <ChaosFramework_Menu_OpenGL_FullPath>$(SolutionDir)/$(ChaosFramework_Menu_OpenGL_Path)/$(ChaosFramework_Menu_OpenGL_Repo).csproj</ChaosFramework_Menu_OpenGL_FullPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(ChaosFramework_Menu_OpenGL_FullPath)')">
+    <ProjectReference Include="$(ChaosFramework_Menu_OpenGL_FullPath)">
+      <Project>{4BF93AFB-B57C-477B-9332-69306EECAA79}</Project>
+      <Name>$(ChaosFramework_Menu_OpenGL_Repo)</Name>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>
